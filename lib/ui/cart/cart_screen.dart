@@ -17,6 +17,7 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Your Cart'),  
       ),
+      backgroundColor: Colors.lightGreen[100],
       body: Column(
         children: <Widget>[
           buildCartSummary(cart, context),

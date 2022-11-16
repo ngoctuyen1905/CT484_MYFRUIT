@@ -26,6 +26,7 @@ class UserProductsScreen extends StatelessWidget{
           buildAddButton(context),
         ],
       ),
+      backgroundColor: Colors.lightGreen[100],
       drawer: const AppDrawer(),
       
       body: FutureBuilder(
