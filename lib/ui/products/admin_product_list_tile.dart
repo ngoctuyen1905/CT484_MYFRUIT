@@ -4,12 +4,12 @@ import '../../models/products.dart';
 import 'edit_product_screen.dart';
 import 'products_manager.dart';
 
-class UserProductListTile extends StatelessWidget {
+class AdminProductListTile extends StatelessWidget {
   final Product product;
-  const UserProductListTile(
-    this.product, {
-    super.key,
-  });
+  const AdminProductListTile(
+      this.product, {
+        super.key,
+      });
   @override
   Widget build(BuildContext context) {
     return ListTile(

@@ -16,12 +16,12 @@ import '../products/top_right_badge.dart';
 
 enum FilterOptions { favorites, all }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key?key}) : super(key:key);
+class MyContact extends StatefulWidget {
+  const MyContact({Key?key}) : super(key:key);
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyContactState createState() => _MyContactState();
 }
-class _MyAppState extends State<MyApp> {
+class _MyContactState extends State<MyContact> {
 
   final _showOnlyFavorites = ValueNotifier<bool>(false);
   late GoogleMapController myController;

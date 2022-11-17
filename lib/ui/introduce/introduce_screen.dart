@@ -46,7 +46,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: const Text(
-              'TYTY shop Hello !!!',
+              'Introduce TYTY shop',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w900,
@@ -104,7 +104,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
-                    image: NetworkImage("https://st1.foodsd.co.il/Images/Products/large/TENeKydcuHqGVM4e.jpg"),
+                    image: NetworkImage("https://image.phunuonline.com.vn/news/2017/20170823/fckimage/108015_trai-cay-ngoai-2395106.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),

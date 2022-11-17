@@ -5,8 +5,8 @@ import '../auth/auth_manager.dart';
 import '../orders/orders_screen.dart';
 import '../products/admin_products_screen.dart';
 
-class AppDrawer extends StatelessWidget {
-  const AppDrawer({super.key});
+class AdminDrawer extends StatelessWidget {
+  const AdminDrawer({super.key});
 
   @override 
   Widget build(BuildContext context) {
@@ -14,26 +14,18 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: const Text('Hello Friend!!!'),
+            title: const Text('Hello Admin!!!'),
             automaticallyImplyLeading: false,
           ),
 
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.shop),
-            title: const Text('Shop'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
-            },
-          ),
 
           const Divider(),
           ListTile(
-            leading: const Icon(Icons.payment),
-            title: const Text('Orders'),
+            leading: const Icon(Icons.edit),
+            title: const Text('Manager Products'),
             onTap: () {
               Navigator.of(context)
-                .pushReplacementNamed(OrdersScreen.routeName);
+                .pushReplacementNamed(AdminProductsScreen.routeName);
             },
           ),
 

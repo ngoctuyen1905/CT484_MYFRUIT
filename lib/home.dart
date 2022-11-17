@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
 
     ProductsOverviewScreen(),
     IntroduceScreen(),
-    MyApp(),
+    MyContact(),
 
     Container(color: Colors.blue),
   ];
@@ -30,12 +30,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     'Fooderlich',
-      //     style: Theme.of(context).textTheme.headline6,
-      //   ),
-      // ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,

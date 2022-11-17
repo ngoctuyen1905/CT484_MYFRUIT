@@ -5,15 +5,7 @@ import 'app_properties.dart';
 import 'home.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:myshop/ui/screens.dart';
 import 'package:provider/provider.dart';
-/* import 'package:myshop/ui/products/product_overview_screen.dart';
-import 'package:myshop/ui/products/user_products_screen.dart';
-import './ui/products/product_detail_screen.dart';
-import './ui/products/products_manager.dart';
-import 'ui/cart/cart_screen.dart';
-import 'ui/orders/orders_screen.dart'; */
-
 import 'ui/screens.dart';
 
 Future<void> main() async {
@@ -30,23 +22,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-  @override
-  // bool check = false;
-  // Future<void> getEmail() async {
-  //   String email = "";
-  //   final prefs = await SharedPreferences.getInstance();
-  //   email = prefs.getString("email")!;
-  //   if (!email.contains("admin")) {
-  //     setState(() {
-  //       check = true;
-  //     });
-  //   } else {
-  //     setState(() {
-  //       check = false;
-  //     });
-  //   }
-  // }
 
   @override
   void initState() {
@@ -92,8 +67,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             home: authManager.isAuth
-              // ? Home()
-                ? (check == "admin" ? IntroduceScreen() : Home())
+                ? (check == "admin" ? AdminProductsScreen() : Home())
                 : FutureBuilder(
                     future: authManager.tryAutoLogin(),
                     builder: (ctx, snapshot) {
@@ -105,7 +79,7 @@ class _MyAppState extends State<MyApp> {
             routes: {
               CartScreen.routeName: (ctx) => const CartScreen(),
               OrdersScreen.routeName: (ctx) => const OrdersScreen(),
-              UserProductsScreen.routeName: (ctx) => const UserProductsScreen(),
+              AdminProductsScreen.routeName: (ctx) => const AdminProductsScreen(),
             },
             onGenerateRoute: (settings) {
               if (settings.name == ProductDetailScreen.routeName) {
