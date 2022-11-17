@@ -15,15 +15,6 @@ class AuthScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             decoration: const BoxDecoration(
-              //   gradient: LinearGradient(
-              //   colors: [
-              //     const Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-              //     const Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
-              //   ],
-              //   begin: Alignment.topLeft,
-              //   end: Alignment.bottomRight,
-              //   stops: const [0, 1],
-              // ),
               image: DecorationImage(
                   image: NetworkImage("https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-blue-sleek-minimalist-summer-fruit-drink-poster-background-image_150327.jpg"),
                   fit: BoxFit.cover),

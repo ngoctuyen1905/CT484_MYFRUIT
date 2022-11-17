@@ -50,9 +50,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 valueListenable: _showOnlyFavorites,
                 // ignore: non_constant_identifier_names
                 builder: (context, onlyFavorites, child) {
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: const Text(
+                    child:  Text(
                       'TYTY shop Hello !!!',
                       textAlign: TextAlign.center,
                       style: TextStyle(

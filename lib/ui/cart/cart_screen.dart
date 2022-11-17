@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:myshop/ui/orders/orders_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../orders/order_manager.dart';
+import '../products/top_right_badge.dart';
 import 'cart_manager.dart';
 import 'cart_item_card.dart';
 
@@ -15,14 +18,18 @@ class CartScreen extends StatelessWidget {
     final cart = context.watch<CartManager>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Cart'),  
+        title: const Text('Shopping Cart'),
+        actions: <Widget>[
+          buildOrder(context),
+        ],
       ),
       backgroundColor: Colors.lightGreen[100],
       body: Column(
         children: <Widget>[
-          buildCartSummary(cart, context),
+
           const SizedBox(height: 10),
-          Expanded(child: buildCartDetails(cart))
+          Expanded(child: buildCartDetails(cart)),
+          buildCartSummary(cart, context)
         ]),
     );
   }
@@ -42,17 +49,19 @@ class CartScreen extends StatelessWidget {
 
   Widget buildCartSummary(CartManager cart, BuildContext context) {
     return Card(
-      margin: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(0),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             const Text(
-              'Total',
-              style: TextStyle(fontSize: 20),
+              'Total:',
+              style: TextStyle(
+                  fontSize: 20,
+              ),
             ),
-            const Spacer(),
+
             Chip(
               label: Text(
                 '\$${cart.totalAmount.toStringAsFixed(2)}',
@@ -61,8 +70,11 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
               backgroundColor: Theme.of(context).primaryColor,
+              padding: const EdgeInsets.all(10),
             ),
+            const Spacer(),
             TextButton(
+              
               onPressed: cart.totalAmount <= 0
               ? null
               : () {
@@ -73,13 +85,52 @@ class CartScreen extends StatelessWidget {
                 cart.clear();
               },
               style: TextButton.styleFrom(
-                textStyle:
-                TextStyle(color: Theme.of(context).primaryColor),
+                padding: const EdgeInsets.all(4),
+                shape: 
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                backgroundColor: Colors.orangeAccent,
+                
               ),
-              child: const Text('ORDER NOW'),
+              child: const Text(
+                  'ORDER NOW',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 13.0,
+                  color: Colors.white,
+                  
+                ),
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildOrder(context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      child: TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(OrdersScreen.routeName);
+            },
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.all(4),
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            backgroundColor: Colors.orangeAccent,
+
+          ),
+          child: const Text(
+            'ORDERS',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 15.0,
+              color: Colors.white,
+
+            ),
+          ),
+
       ),
     );
   }

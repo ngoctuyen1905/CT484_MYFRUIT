@@ -39,10 +39,11 @@ class CartManager with ChangeNotifier {
       _items.putIfAbsent(
         product.id!,
         () => CartItem(
-          id: 'c${DateTime.now().toIso8601String()}',
+          id: '001',
           title: product.title,
           price: product.price,
           quantity: 1,
+          imageUrl: product.imageUrl,
         ),
       );
     }

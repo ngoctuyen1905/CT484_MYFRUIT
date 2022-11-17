@@ -55,22 +55,19 @@ class CartItemCard extends StatelessWidget {
         horizontal: 15,
         vertical: 4,
       ),
+
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(1),
         child: ListTile(
           leading: CircleAvatar(
-            child: Padding(
-              padding: const EdgeInsets.all(5),
-              child: FittedBox(
-                child: Text('\$${cardItem.price}'),
-              ),
-            ),
+
+          backgroundImage: NetworkImage(cardItem.imageUrl),
           ),
           title: Text(cardItem.title),
           subtitle: Text('Total: \$${(cardItem.price *cardItem.quantity)}'),
           trailing: Text('${cardItem.quantity} x'),
         ),
       ),
-    );
+   );
   }
 }
