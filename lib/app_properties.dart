@@ -6,6 +6,7 @@ const Color darkYellow = Color(0xffE99E22);
 const Color transparentYellow = Color.fromRGBO(253, 184, 70, 0.7);
 const Color textYellow = Color.fromARGB(255, 116, 73, 6);
 const Color darkGrey = Color(0xff202020);
+String check = "";
 
 const LinearGradient mainButton = LinearGradient(colors: [
   Color.fromRGBO(236, 60, 3, 1),

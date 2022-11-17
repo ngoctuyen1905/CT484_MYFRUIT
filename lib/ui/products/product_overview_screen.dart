@@ -43,6 +43,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       drawer: const AppDrawer(),
       body: FutureBuilder(
         future: _fetchProducts,
+
         builder: (context, snapshot) {
 
           if (snapshot.connectionState == ConnectionState.done) {
@@ -50,19 +51,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 valueListenable: _showOnlyFavorites,
                 // ignore: non_constant_identifier_names
                 builder: (context, onlyFavorites, child) {
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child:  Text(
-                      'TYTY shop Hello !!!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 30.0,
-                        fontFamily: "DancingScript",
-                        color: Colors.orange,
-                      ),
-                    ),
-                  );
+
                   return ProductsGrid(onlyFavorites);
                 });
           }
@@ -71,7 +60,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           );
         },
       ),
-
     );
   }
 

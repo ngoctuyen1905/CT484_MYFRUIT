@@ -38,7 +38,6 @@ class AuthService {
       if (responseJson['error'] != null) {
         throw HttpException.firebase(responseJson['error']['message']);
       }
-
       final authToken = _fromJson(responseJson);
       _saveAuthToken(authToken);
 

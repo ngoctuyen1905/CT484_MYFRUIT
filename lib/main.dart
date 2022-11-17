@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myshop/ui/introduce/introduce_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'app_properties.dart';
 import 'home.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -19,14 +22,42 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
+  // bool check = false;
+  // Future<void> getEmail() async {
+  //   String email = "";
+  //   final prefs = await SharedPreferences.getInstance();
+  //   email = prefs.getString("email")!;
+  //   if (!email.contains("admin")) {
+  //     setState(() {
+  //       check = true;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       check = false;
+  //     });
+  //   }
+  // }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // getEmail();
+  }
 
   Widget build(BuildContext context) {
+    // print(check);
     return MultiProvider(
-
       providers: [
         // (2) Create and provide AuthManager(),
         ChangeNotifierProvider(create: (context) => AuthManager()),
@@ -61,7 +92,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
             home: authManager.isAuth
-                ? const Home()
+              // ? Home()
+                ? (check == "admin" ? IntroduceScreen() : Home())
                 : FutureBuilder(
                     future: authManager.tryAutoLogin(),
                     builder: (ctx, snapshot) {

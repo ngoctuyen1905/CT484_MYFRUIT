@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../app_properties.dart';
 
 import '../../models/http_exception.dart';
@@ -29,6 +30,7 @@ class _AuthCardState extends State<AuthCard> {
   final _passwordController = TextEditingController();
 
   Future<void> _submit() async {
+
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -38,6 +40,11 @@ class _AuthCardState extends State<AuthCard> {
 
     try {
       if (_authMode == AuthMode.login) {
+        if (_authData['email']!.contains("admin")) {
+         check = "admin";
+        } else {
+          check = "user";
+        }
         // Log user in
         await context.read<AuthManager>().login(
               _authData['email']!,
